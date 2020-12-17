@@ -33,10 +33,10 @@ CREATE TABLE PRESTAMOS (
 	FOREIGN KEY (Cod_Socio)
         REFERENCES SOCIOS (Cod_socio)
 	ON UPDATE CASCADE
-	ON DELETE NO ACTION,
+	ON DELETE NO ACTION,  -- Podría usarse también CASCADE si queremos que, borrado un socio, se borren todos sus préstamos
 	CONSTRAINT Referencia_pelicula_FK 
 	FOREIGN KEY (Referencia_Película) 
 	REFERENCES PELICULA (Referencia)
 	ON UPDATE CASCADE
-	ON DELETE NO ACTION
+	ON DELETE NO ACTION  -- Podría usarse también CASCADE si queremos que, borrada una película, se borren todas las películas asociadas
 );
