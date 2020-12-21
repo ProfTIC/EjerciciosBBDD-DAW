@@ -38,6 +38,7 @@ CREATE TABLE Prácticas(
 
 RENAME TABLE Prácticas TO FCT;
 
+ALTER TABLE FCT ADD CONSTRAINT Pract_PK PRIMARY KEY(Dni_Alumno,Nif_Empresa );
 /*,
 	CONSTRAINT Dni_Alum_FK 
 	FOREIGN KEY(Dni_Alumno)
