@@ -16,8 +16,11 @@ create table Alumnos (
 	
 );
 
+-- La clave foránea se puede crear en el comando CREATE TABLE o con ALTER TABLE
+
 ALTER TABLE Alumnos ADD CONSTRAINT Alumnos_del_fk 
 	FOREIGN KEY (NIE_Delegado)
 	REFERENCES Alumnos(NIE)
 	ON UPDATE CASCADE
 	ON DELETE SET NULL;
+
