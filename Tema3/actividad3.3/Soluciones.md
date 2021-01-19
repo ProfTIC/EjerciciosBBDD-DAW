@@ -290,15 +290,57 @@ CREATE TABLE Ejemplar(
 
 ### Esquema conceptual modificado
 
-
-
-### Esquema conceptual modificado
+![Esquema conceptual modificado ejercicio 5](Ejercicio5/img/ECM-Ejercicio5.png)
 
 ### Tablas
 
+![Tablas](Ejercicio5/img/Ejercicio5-Tablas.JPG)
 ### Normalización
 
-### Código SQL
+- 1FN => Todos los atributos no clave dependen funcionalmente de la clave
+
+- 2FN => La clave primaria de la tabla tiene solo un atributo, por lo que automáticamente está en segunda forma normal
+
+- 3FN => No existen dependencias transitivas, por lo que está en 3FN
+
+### Código SQL  [[link]](Ejercicio5/EJ5-3.3-AGM.sql)
+
+```sql
+
+DROP DATABASE IF EXISTS EJ5ACT3AGM;
+CREATE DATABASE EJ5ACT3AGM;
+
+USE EJ5ACT3AGM;
+
+CREATE TABLE CUENTA(
+	N_CUENTA VARCHAR(24),
+	SALDO FLOAT NOT NULL,
+	SUCURSAL VARCHAR(20) NOT NULL,
+	BANCO VARCHAR(20) NOT NULL,
+	CONSTRAINT Cuenta_pk PRIMARY KEY(N_CUENTA)
+);
+
+CREATE TABLE TRANSACCIÓN(
+	COD_TRANS VARCHAR(10),
+	N_CUENTA_REALIZA VARCHAR(24),
+	CONCEPTO VARCHAR(20) NOT NULL,
+	CANTIDAD FLOAT NOT NULL,
+	FECHA DATETIME NOT NULL,
+	N_CUENTA_RECIBE VARCHAR(10),
+	CONSTRAINT TRANSACCIÓN_PK PRIMARY KEY (COD_TRANS, N_CUENTA_REALIZA),
+	CONSTRAINT N_CUENTA_REALIZA_FK 
+	FOREIGN KEY (N_CUENTA_REALIZA) 
+	REFERENCES CUENTA(N_CUENTA)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT N_CUENTA_RECIBE_FK 
+	FOREIGN KEY (N_CUENTA_RECIBE) 
+	REFERENCES CUENTA(N_CUENTA)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
+);
+
+```
 
 [Inicio](#top)
 
