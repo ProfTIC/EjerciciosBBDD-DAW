@@ -360,7 +360,7 @@ CREATE TABLE TRANSACCIÓN(
 
 ### Tablas
 
-![Tablas ejercicio 6](Ejercicio6/img/Tablas-Ejercicio6.PNG)
+![Tablas ejercicio 6](Ejercicio6/img/Ejercicio6-Tablas.PNG)
 
 ### Normalización
 
